@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - ".github/**"
+      - "tools/**"
+      - ".editorconfig"
+      - "LICENSE"
+      - "README.md"
 
 permissions:
   contents: read
