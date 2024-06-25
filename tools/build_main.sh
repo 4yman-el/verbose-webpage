@@ -1,7 +1,7 @@
 #!/bin/bash
 
-rm js-min/main.js
-touch js-min/main.js
+# Add note to main.js
+printf "// This file is generated AUTOMATICALLY\n\n" > js-min/main.js
 
 for file in js-src/*; do
     cat $file >> js-min/main.js
