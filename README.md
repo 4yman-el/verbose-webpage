@@ -1,2 +1,2 @@
 # verbose-webpage
- Exploring the limits of JavaScript
+Exploring the limits of JavaScript.
