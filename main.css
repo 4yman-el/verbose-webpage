@@ -33,11 +33,19 @@ body {
     min-height: 500px;
     max-width: 700px;
     margin: 2.5vh auto;
-    padding: 1rem;
+    padding: .5rem 0 1rem 0;
     display: flex;
     flex-direction: column;
     background: var(--bg);
     border-radius: 6px;
+}
+
+@media (max-width: 700px){
+    #app {
+        height: 100vh;
+        margin: 0;
+        border-radius: 0;
+    }
 }
 
 .heading {
@@ -51,4 +59,13 @@ body {
     color: #FFF;
     background: #000;
     font-family: 'Courier New', 'Ubuntu Mono', monospace;
+}
+
+.copyright {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 0 .2rem;
+    background: rgba(200, 200, 200, .2);
+    font-family: monospace;
 }
