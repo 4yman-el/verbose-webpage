@@ -21,6 +21,13 @@ navigator.geolocation.getCurrentPosition((pos) => {
         print(`Geolocation error`);
     }
 });
+if (navigator.javaEnabled && navigator.javaEnabled()){
+    print("Java enabled");
+} else {
+    print("Java disabled or unsupported");
+}
+print(`Main language: ${navigator.language}`);
+print(`Other languages: ${navigator.languages.join(", ")}.`);
 Notification.requestPermission().then(result => {
     print(`Notifications are ${result}`)
 });
