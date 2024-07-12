@@ -43,16 +43,21 @@ screen.orientation.addEventListener("change", () => {
     print(`Screen: ${screen.orientation.type}`);
 });
 let isFirefox = 0, isWebkit = 0;
-// https://stackoverflow.com/a/25329460
 let isIE = !!window.document.documentMode || /*@cc_on!@*/false;
+let isSafari = !!window.safari || /Constructor/.test(window.HTMLElement);
+
+function assertFirefox (assert){
+	if (assert) isFirefox++;
+}
+
+function assertWebkit (assert){
+	if (assert) isWebkit++;
+}
 assertFirefox(CSS.supports("-moz-user-focus", "normal"));
 assertFirefox(CSS.supports("-moz-box-sizing", "content-box"));
 assertWebkit(CSS.supports("-webkit-border-vertical-spacing", 0));
-if (Math.hypot(-24.42, -50.519999999999925) === 56.11244781686139) {
-    isFirefox++;
-} else if (Math.hypot(-24.42, -50.519999999999925) === 56.1124478168614) {
-    isWebkit++;
-}
+assertFirefox(Math.hypot(-24.42, -50.519999999999925) === 56.11244781686139);
+assertWebkit(Math.hypot(-24.42, -50.519999999999925) === 56.1124478168614);
 assertFirefox(window.mozInnerScreenX !== undefined);
 assertWebkit(window.webkitCancelAnimationFrame !== undefined);
 assertWebkit(window.PERSISTENT !== undefined);
@@ -62,7 +67,11 @@ if (isIE) {
 } else if (isFirefox > isWebkit) {
 	print("Browser: Firefox detected");
 } else if (isWebkit > isFirefox) {
-	print("Browser: Chromium/Safari detected");
+	if (isSafari) {
+		print("Browser: Safari detected");
+	} else {
+		print("Browser: Chromium detected");
+	}
 } else {
 	print("Browser: Unknown");
 }
