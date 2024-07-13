@@ -5,15 +5,15 @@
 }
 
 :root {
-    --bg: #FFF;
-    --bg-1: #BBB;
-    --fg: #000;
+    --bg-1: #CCC;
+    --bg-2: #EEE;
+    --fg: #222;
 }
 
 @media (prefers-color-scheme: dark){
     :root {
-        --bg: #444;
-        --bg-1: #222;
+        --bg-1: #444;
+        --bg-2: #222;
         --fg: #FFF;
     }
 }
@@ -24,19 +24,20 @@ html {
 
 body {
     color: var(--fg);
-    background: var(--bg-1);
-    font-family: system-ui, 'Segoe UI', Tahoma, Ubuntu, 'Helvetica Neue', sans-serif;
+    background: var(--bg-2);
+    font-family: 'Segoe UI', Tahoma, 'Helvetica Neue', sans-serif;
 }
 
 #app {
+    width: 70vw;
     height: 95vh;
-    min-height: 500px;
-    max-width: 700px;
+    min-width: 200px;
+    min-height: 300px;
     margin: 2.5vh auto;
     padding: .5rem 0 1rem 0;
     display: flex;
     flex-direction: column;
-    background: var(--bg);
+    background: var(--bg-1);
     border-radius: 6px;
 }
 
@@ -58,7 +59,7 @@ body {
     overflow: scroll;
     color: #FFF;
     background: #000;
-    font-family: 'Courier New', 'Ubuntu Mono', monospace;
+    font-family: 'Courier New', 'Noto Mono', monospace;
 }
 
 .copyright {
